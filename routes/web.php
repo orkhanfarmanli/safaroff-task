@@ -23,4 +23,12 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Registration Routes...
 Route::get('register', function () {return redirect()->back();});
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Admin routes
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('dashboard');
+
+    Route::resource('/posts', 'PostsController');
+    Route::resource('/maininfos', 'MainInfosController');
+
+});

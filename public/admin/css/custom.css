@@ -5,3 +5,12 @@
 .page-content {
     min-height: calc(100vh - 70px);
   }
+
+.list-title{
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+}
