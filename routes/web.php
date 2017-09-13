@@ -10,11 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/post/{post}', 'HomeController@post')->name('post');
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -26,7 +25,7 @@ Route::get('register', function () {return redirect()->back();});
 // Admin routes
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
 
-    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::get('/', 'AdminController@index')->name('dashboard');
 
     Route::resource('/posts', 'PostsController');
     Route::resource('/maininfos', 'MainInfosController');

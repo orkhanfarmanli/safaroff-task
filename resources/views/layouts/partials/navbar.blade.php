@@ -11,7 +11,6 @@
   <!-- Sidebar Navidation Menus-->
   <span class="heading">Main</span>
   <ul class="list-unstyled">
-    <li class="active"> <a href="{{ route('dashboard') }}"><i class="icon-home"></i>Home</a></li>
     {{--  <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Dropdown </a>
     <ul id="dashvariants" class="collapse list-unstyled">
       <li><a href="#">Page</a></li>
@@ -20,8 +19,7 @@
       <li><a href="#">Page</a></li>
     </ul>
   </li> --}}
-  <li> <a href="{{ route('maininfos.index') }}"><i class="icon-padnote"></i>Main Info </a></li>
-  <li> <a href="{{ route('posts.index')}}"><i class="icon-grid"></i>Posts </a></li>
-  <li> <a href="#"><i class="fa fa-picture-o"></i>Galleries </a></li>
+  <li> <a href="{{ route('maininfos.index') }}"><i class="fa fa-home"></i>Main Info </a></li>
+  <li> <a href="{{ route('posts.index')}}"><i class="fa fa-th"></i>Blog Posts </a></li>
 </ul>
 </nav>

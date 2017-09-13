@@ -11,8 +11,12 @@ use Illuminate\Foundation\Inspiring;
 | commands. Each Closure is bound to a command instance allowing a
 | simple approach to interacting with each command's IO methods.
 |
-*/
+ */
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+Artisan::command('refresh', function () {
+    $this->call('migrate:fresh');
+    $this->call('db:seed');
+});
