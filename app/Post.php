@@ -11,8 +11,18 @@ class Post extends Model
         'short_desc',
         'main_img',
         'body',
-        'post_date',
-        'created_at',
-        'updated_at',
+        'user_id',
     ];
+
+    /**
+     * Post author
+     *
+     * @param $var1 $var2
+     * @return Type $var
+     */
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

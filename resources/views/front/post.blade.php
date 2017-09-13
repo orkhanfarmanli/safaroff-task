@@ -9,8 +9,8 @@
           <h1>{{ $post->title }}</h1>
           <h2 class="subheading">{{ $post->short_desc }}</h2>
           <span class="meta">Posted by
-            <a href="#">Start Bootstrap</a>
-          {{ date("F d, Y", strtotime($post->post_date)) }}</span>
+            <a href="#">{{ $post->author['name'] }}</a>
+          {{ date("F d, Y", strtotime($post->created_at)) }}</span>
         </div>
       </div>
     </div>

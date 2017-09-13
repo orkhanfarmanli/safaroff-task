@@ -29,9 +29,9 @@
           </h3>
         </a>
         <p class="post-meta">Posted by
-          <a href="#">Start Bootstrap</a>
+          <a href="#">{{ $post->author['name'] }}</a>
         {{-- {{ date(date("D Y", strtotime($post->post_date))) }}</p> --}}
-        on {{ date("F d, Y", strtotime($post->post_date)) }}</p>
+        on {{ date("F d, Y", strtotime($post->created_at)) }}</p>
       </div>
       <hr>
 @endforeach

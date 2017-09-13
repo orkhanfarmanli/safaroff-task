@@ -3,6 +3,7 @@
   {!! Form::text('title', null, ['class' => 'form-control']) !!}
   <small class="text-danger">{{ $errors->first('title') }}</small>
 </div>
+<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 {!! Form::label('title', 'Image') !!}
 <div class="input-group">
   <span class="input-group-btn">
@@ -10,7 +11,9 @@
       <i class="fa fa-picture-o"></i> Choose
     </a>
   </span>
-  <input id="thumbnail" class="form-control" type="text" name="main_img">
+  {!! Form::text('main_img', null, ['class' => 'form-control', 'id' => 'thumbnail']) !!}
+
+  {{-- <input id="thumbnail" class="form-control" type="text" name="main_img"> --}}
 </div>
 <img id="holder" style="margin-top:15px;max-height:100px;">
 <div class="form-group{{ $errors->has('short_desc') ? ' has-error' : '' }}">

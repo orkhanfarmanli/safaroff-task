@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::select(['id', 'title', 'short_desc', 'user_id', 'post_date'])->get();
+        $posts = Post::select(['id', 'title', 'short_desc', 'user_id', 'created_at'])->latest()->take(10)->get();
         return view('front.index', compact('posts'));
     }
 

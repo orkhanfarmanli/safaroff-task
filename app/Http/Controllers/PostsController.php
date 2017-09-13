@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('back.posts.index', ['posts' => Post::paginate(10), 'post_count' => count(Post::all())]);
+        return view('back.posts.index', ['posts' => Post::latest()->paginate(10), 'post_count' => count(Post::all())]);
     }
 
     /**
@@ -71,7 +71,7 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
-        return redirect()->back();
+        return redirect()->route('posts.index');
     }
 
     /**
