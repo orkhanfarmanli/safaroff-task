@@ -7,8 +7,7 @@
     <meta name="author" content="">
         <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>Clean Blog - @yield('title')</title>
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template -->

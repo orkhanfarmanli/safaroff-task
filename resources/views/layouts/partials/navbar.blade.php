@@ -21,5 +21,6 @@
   </li> --}}
   <li> <a href="{{ route('maininfos.index') }}"><i class="fa fa-home"></i>Main Info </a></li>
   <li> <a href="{{ route('posts.index')}}"><i class="fa fa-th"></i>Blog Posts </a></li>
+  <li> <a href="{{ route('menus.index')}}"><i class="fa fa-bars"></i>Menus </a></li>
 </ul>
 </nav>

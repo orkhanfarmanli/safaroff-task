@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'About us')
 @section('content')
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('img/about-bg.jpg')">

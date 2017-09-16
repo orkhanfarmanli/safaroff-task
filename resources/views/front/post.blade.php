@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $post->title)
 @section('content')
 <!-- Page Header -->
 <header class="masthead" style="background-image: url('{{ asset($post->main_img) }}')">

@@ -16,7 +16,8 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
 Artisan::command('refresh', function () {
     $this->call('migrate:fresh');
     $this->call('db:seed');
-});
+})->describe('Refresh tables and seed');

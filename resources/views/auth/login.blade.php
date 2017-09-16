@@ -56,7 +56,7 @@
                       <input id="login-username" type="email" name="email" value="{{ old('email') }}" class="input-material" required autofocus>
                       <label for="login-username" class="label-material">Email</label>
                       @if ($errors->has('email'))
-                          <span class="help-block">
+                          <span class="help-block text-danger">
                               <strong>{{ $errors->first('email') }}</strong>
                           </span>
                       @endif

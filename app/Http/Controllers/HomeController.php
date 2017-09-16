@@ -40,15 +40,16 @@ class HomeController extends Controller
     }
 
     /**
-     * Contact page
+     * All posts page
      *
      * @param $var1 $var2
      * @return Type $var
      */
 
-    public function contact()
+    public function posts()
     {
-        return view('front.contact');
+        $posts = Post::select(['id', 'title', 'short_desc', 'user_id', 'created_at'])->latest()->get();
+        return view('front.posts', compact('posts'));
     }
 
     /**
@@ -61,5 +62,17 @@ class HomeController extends Controller
     public function post(Post $post)
     {
         return view('front.post', compact('post'));
+    }
+
+    /**
+     * Contact page
+     *
+     * @param $var1 $var2
+     * @return Type $var
+     */
+
+    public function contact()
+    {
+        return view('front.contact');
     }
 }

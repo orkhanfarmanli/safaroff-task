@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequest;
-use App\Post;
+use App\Http\Requests\MenuRequest;
+use App\Menu;
 
-class PostsController extends Controller
+class MenusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('back.posts.index', ['posts' => Post::latest()->paginate(10), 'post_count' => count(Post::all())]);
+        return view('back.menus.index', ['menus' => Menu::latest()->paginate(10), 'menu_count' => count(Menu::all())]);
     }
 
     /**
@@ -24,19 +24,19 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('back.posts.create');
+        return view('back.menus.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\PostRequest  $request
+     * @param  App\Http\Requests\MenuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(MenuRequest $request)
     {
-        Post::create($request->all());
-        return redirect()->route('posts.index');
+        Menu::create($request->all());
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -45,9 +45,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Menu $menu)
     {
-        return $post;
+        return $menu;
     }
 
     /**
@@ -56,22 +56,22 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Menu $menu)
     {
-        return view('back.posts.edit', ['post' => $post]);
+        return view('back.menus.edit', ['menu' => $menu]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\PostRequest  $request
+     * @param  App\Http\Requests\MenuRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(MenuRequest $request, Menu $menu)
     {
-        $post->update($request->all());
-        return redirect()->route('posts.index');
+        $menu->update($request->all());
+        return redirect()->route('menus.index');
     }
 
     /**
@@ -80,9 +80,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Menu $menu)
     {
-        $post->delete();
+        $menu->delete();
         return redirect()->back();
     }
 }
