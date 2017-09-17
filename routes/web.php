@@ -20,7 +20,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function () {
 
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::resource('/posts', 'PostsController');
-    Route::resource('/maininfos', 'MainInfosController');
+    Route::resource('/pages', 'PagesController');
     Route::resource('/menus', 'MenusController');
 
 });

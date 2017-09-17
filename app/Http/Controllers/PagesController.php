@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use Illuminate\Http\Request;
 
-class MainInfosController extends Controller
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class MainInfosController extends Controller
      */
     public function index()
     {
-        return view('back.maininfos.index');
+        return view('back.pages.index', ['pages' => Page::latest()->paginate(10), 'page_count' => count(Page::all())]);
     }
 
     /**
@@ -23,7 +24,7 @@ class MainInfosController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.pages.create');
     }
 
     /**
@@ -34,7 +35,8 @@ class MainInfosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Page::create($request->all());
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -54,9 +56,9 @@ class MainInfosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Page $page)
     {
-        //
+        return view('back.pages.edit', ['page' => $page]);
     }
 
     /**
@@ -66,9 +68,10 @@ class MainInfosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Page $page)
     {
-        //
+        $page->update($request->all());
+        return redirect()->route('pages.index');
     }
 
     /**
@@ -77,8 +80,9 @@ class MainInfosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect()->route('pages.index');
     }
 }

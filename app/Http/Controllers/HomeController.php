@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
 use App\Post;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
 
     /**
      * Show the application dashboard.
@@ -23,8 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $page = Page::where('identifier', '=', 'home')->first();
         $posts = Post::select(['id', 'title', 'short_desc', 'user_id', 'created_at'])->latest()->take(10)->get();
-        return view('front.index', compact('posts'));
+        return view('front.index', compact('posts', 'page'));
     }
 
     /**
@@ -36,7 +29,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('front.about');
+        $page = Page::where('identifier', '=', 'about')->first();
+        return view('front.about', compact('page'));
     }
 
     /**
@@ -73,6 +67,7 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('front.contact');
+        $page = Page::where('identifier', '=', 'contact')->first();
+        return view('front.contact', compact('page'));
     }
 }

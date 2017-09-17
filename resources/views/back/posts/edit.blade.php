@@ -8,7 +8,7 @@
     </div>
     <div class="card-body">
       {!! Form::model($post, ['method' => 'PUT', 'route' => ['posts.update', $post->id], 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data']) !!}
-        @include('back.posts._form', ['button' => 'Submit'])
+        @include('back.posts._form', ['button' => 'Update'])
       {!! Form::close() !!}
     </div>
   </div>

@@ -90,7 +90,6 @@
     <script src="{{ asset('admin/js/jquery.cookie.js') }}"> </script>
     <script src="{{ asset('admin/js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('admin/js/front.js') }}"></script>
-    <script src="{{ asset('admin/js/moment-with-locales.js') }}"></script>
     @yield('customscripts')
   </body>
 </html>

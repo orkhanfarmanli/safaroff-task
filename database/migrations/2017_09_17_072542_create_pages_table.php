@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainInfosTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateMainInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_infos', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('description');
+            $table->string('identifier')->unique();
             $table->string('cover_img');
+            $table->string('short_desc');
+            $table->string('body')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateMainInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_infos');
+        Schema::dropIfExists('pages');
     }
 }
